@@ -1,61 +1,51 @@
-// =========================================
-// TRAINING DATA
-// x = advertising budget
-// y = product demand
-// =========================================
+function submitInput(){
+    const form = document.getElementById("form")
+    form.addEventListener("submit", async (e)=>{
+        e.preventDefault()
 
-const x = [50, 100, 150, 200, 250, 300, 350, 400];
-const y = [30, 50, 65, 80, 100, 120, 140, 160];
+        const store = document.getElementById("store").value
+        const product = document.getElementById("product").value
+        const category = document.getElementById("category").value
+        const price = document.getElementById("price").value
+        const competitor_pricing = document.getElementById("competitor_pricing").value
+        const inventory = document.getElementById("inventory").value
+        const units_ordered = document.getElementById("units_ordered").value
+        const disc = document.getElementById("disc").value
+        const demand_forecast = document.getElementById("demand_forecast").value
+        const weather = document.getElementById("weather").value
+        const region = document.getElementById("region").value
+        const seasonality = document.getElementById("seasonality").value
+        const holiday_or_promotion = document.querySelector('input[name="holiday_or_promotion"]:checked').value
 
+        const data = {
+            store: Number(store),
+            product: Number(product),
+            category: Number(category),
+            region: Number(region),
+            inventory: Number(inventory),
+            units_ordered: Number(units_ordered),
+            demand_forecast: Number(demand_forecast),
+            price: Number(price),
+            disc: Number(disc),
+            weather: Number(weather),
+            holiday: Number(holiday_or_promotion),
+            competitor_pricing: Number(competitor_pricing),
+            seasonality: Number(seasonality)
+        }
 
-// =========================================
-// SIMPLE LINEAR REGRESSION
-// y = mx + b
-// =========================================
+        await fetchPrediction(data)
+       
+    })
 
-function linearRegression(x, y) {
-    const n = x.length;
-
-    let sumX = 0;
-    let sumY = 0;
-    let sumXY = 0;
-    let sumXX = 0;
-
-    for (let i = 0; i < n; i++) {
-        sumX += x[i];
-        sumY += y[i];
-        sumXY += x[i] * y[i];
-        sumXX += x[i] * x[i];
-    }
-
-    const slope = (n * sumXY - sumX * sumY) /
-                (n * sumXX - sumX * sumX);
-
-    const intercept = (sumY - slope * sumX) / n;
-
-    return {
-    slope,
-    intercept
-    };
 }
 
-// Train model
-const model = linearRegression(x, y);
+async function fetchPrediction(data){
+     const res = await axios.post(
+            "http://127.0.0.1:8000/predict",
+            data
+        )
+        
+        console.log(res.data)
 
-console.log("Model:", model);
-// =========================================
-// PREDICTION FUNCTION
-// =========================================
-
-function predictDemand() {
-
-    const advertising = Number(
-    document.getElementById("advertising").value
-    );
-
-    const prediction =
-    model.slope * advertising + model.intercept;
-
-    document.getElementById("result").innerHTML =
-    `Predicted Demand: ${prediction.toFixed(2)} units`;
+        document.getElementById("result_prediction").innerText = "Units Sold Prediciton: " + Math.ceil(res.data.prediction).toFixed(0)
 }
