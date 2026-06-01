@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Predict Demand</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1 style="color: rgb(32, 4, 244);">StockSense</h1>
+    <p style=" color: rgb(141, 139, 139);">Inventory intelligence for retail demanding forecast</p>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="predict.html">Predict</a>
+      <a href="results.html" class="nav-active">Results</a>
+    </nav>
+    <hr>  
+  <header>
+  
+  <section>
+    <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Store ID</th>
+            <th>Category</th>
+            <th>Inventory</th>
+            <th>Units Ordered</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Holiday or Promotion</th>
+            <th>Predicted Demand</th>
+            <th>Stock Raito</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="table"></tbody>
+    </table>
+  </section>
+  
+  <script src="../script.js"></script>
+</body>
+</html>
