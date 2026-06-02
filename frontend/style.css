@@ -121,6 +121,7 @@ input{
     color: gray;
     font-size: 30px;
     text-align: center;
+    font-style: italic;
 }
 
 #stock_ratio{
@@ -155,4 +156,62 @@ th,td{
 
 tbody tr:hover {
     background-color: #f5f5f5;
+}
+
+#landing-data{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    gap: 3%;
+}
+
+.container-dashboard{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d8d8d8;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.container-dashboard h1,h2{
+    margin: 5px;
+}
+
+.store-rank{
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 20px;
+}
+
+.store-rank-container{
+    width: 100%;
+    background-color: white;
+    height: 30px;
+}
+
+.store-rank-bar{
+    background-color: rgb(0, 136, 255);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 30px;
+}
+
+#rank{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+
+.rank-column{
+    width: 100%;
 }
