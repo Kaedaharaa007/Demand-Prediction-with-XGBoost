@@ -11,7 +11,8 @@ app.add_middleware(
 
     allow_origins=[
         "http://127.0.0.1:5500",
-        "http://localhost:5500"
+        "http://localhost:5500",
+        "http://localhost:8000",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -62,10 +63,25 @@ def predict(data: UserInput):
     ]]
 
     prediction = model.predict(features)
+    stock_ratio = determineStockRatio(float(prediction[0]),data.inventory)
     print(float(prediction[0]))
+    print(stock_ratio)
+
+    status = None
+    if(stock_ratio>1.2): status = "Overstock"
+    elif(stock_ratio < 0.8): status = "Understock"
+    else:  status = "Balance"
 
     return{
-        "prediction": float(prediction[0])
+        "prediction": float(prediction[0]),
+        "status": status,
+        "stock_ratio":stock_ratio,
     }
+
+def determineStockRatio(demand_forecast, stock_level):
+
+    ratio = stock_level/demand_forecast
+
+    return ratio
 
 

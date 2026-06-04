@@ -9,6 +9,14 @@ a{
     color: black;
 }
 
+nav{
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+
+    font-size: 20px;
+}
+
 .nav-active{
     color: rgb(255, 38, 0)   ;      
 }
@@ -22,6 +30,16 @@ form{
     height: 80%;
 
     gap: 8px;
+}
+
+.radio-label{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
 }
 
 .radio-label:hover{
@@ -39,10 +57,9 @@ select{
     padding: 10px;
 }
 
-input[type="number"]{
+input{
     width: 100%;
     height: 25px;
-
     border: solid black 1px;
     border-radius: 5px;
 }
@@ -55,7 +72,7 @@ input[type="number"]{
 
 #predict{
     display: flex;
-    flex-direction: row;
+    flex-direction: row;        
 
     margin-top: 10px;
     gap: 35px;
@@ -98,4 +115,107 @@ input[type="number"]{
 
     width: 100%;
     margin: 10px;
+}
+
+#result_prediction{
+    color: gray;
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+}
+
+#stock_ratio{
+    text-align: center;
+    font-size: 40px;
+}
+
+.RED{
+    color: red;
+}
+
+.GREEN{
+    color: green;
+}
+
+.ORANGE{
+    color: orange;
+}
+
+thead{
+    font-size: 20px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+th,td{
+    padding: 0 10px;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+#landing-data{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    gap: 3%;
+}
+
+.container-dashboard{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.container-dashboard h1,h2{
+    margin: 5px;
+}
+
+.store-rank{
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 20px;
+}
+
+.store-rank-container{
+    width: 100%;
+    background-color: white;
+    height: 30px;
+}
+
+.store-rank-bar{
+    background-color: rgb(0, 136, 255);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 30px;
+}
+
+#rank{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+
+.rank-column{
+    width: 30%;
+}
+
+.rank-column h1{
+    font-size: 25px;
 }

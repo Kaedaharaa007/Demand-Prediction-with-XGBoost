@@ -9,18 +9,37 @@
 <body>
   <header>
     <h1 style="color: rgb(32, 4, 244);">StockSense</h1>
-    <p>Inventory intelligence for retail demanding forecast</p>
+    <p style=" color: rgb(141, 139, 139);">Inventory intelligence for retail demanding forecast</p>
     <nav>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.php">Dashboard</a>
       <a href="predict.html">Predict</a>
       <a href="results.html" class="nav-active">Results</a>
-      <a href="about.html">About</a>
     </nav>
     <hr>  
   <header>
   
-  
+  <section>
+    <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Store ID</th>
+            <th>Category</th>
+            <th>Inventory</th>
+            <th>Units Ordered</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Holiday or Promotion</th>
+            <th>Predicted Demand</th>
+            <th>Stock Raito</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-<script src="../script.js"></script>
+        <tbody id="table"></tbody>
+    </table>
+  </section>
+  
+  <script src="../script.js"></script>
 </body>
 </html>

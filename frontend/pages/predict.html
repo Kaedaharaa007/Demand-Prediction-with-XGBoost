@@ -11,10 +11,10 @@
     <h1 style="color: rgb(32, 4, 244);">StockSense</h1>
     <p style=" color: rgb(141, 139, 139);">Inventory intelligence for retail demanding forecast</p>
     <nav>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.php">Dashboard</a>
       <a href="predict.html" class="nav-active">Predict</a>
       <a href="results.html">Results</a>
-      <a href="about.html">About</a>
+
     </nav>
     <hr>  
   <header>
@@ -124,13 +124,17 @@
         <div class="mid-wrapper">
           <button type="submit" class="submit-btn" onclick="submitInput()">Predict Demand Forecast</button>
         </div>
+
       </form>
+
       <div id="predict-result">
         <h1>Prediction Results</h1>
         <div class="container">
-          <p id="result_prediction">!results go here!</p>
+          <p id="result_prediction">results go here</p>
+          <h1 id="stock_ratio"></h1>
         </div>
       </div>
+
     </section>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="../script.js"></script>
