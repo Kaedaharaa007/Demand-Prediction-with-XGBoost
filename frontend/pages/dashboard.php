@@ -25,8 +25,14 @@
 
     $result_rank2 = $conn->query($sql_rank2);
 
-    //filter by user input
-    $sql_fiter = ""
+    //rank by region
+    $sql_filter = "
+        SELECT region, SUM(demand_forecast) AS total_forecast
+        FROM orders 
+        GROUP BY region
+        ORDER BY total_forecast DESC
+    ";
+    $result_rank3 = $conn->query($sql_filter);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,6 +91,21 @@
                 <?php $width = $row——2['total_forecast']/$data['total_forecast']*100 ?>
                 <div class="store-rank">
                     <h2><?= $row——2['category'] ?></h2>
+                    <div class="store-rank-container">
+                        <div class="store-rank-bar" style="width: <?= $width?>%;">
+                            <h2 style="color: white;"><?= number_format($width,2) ?>%</h2>
+                        </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+
+        <div class="rank-column">
+            <h1>Top product demand by region</h1>
+            <?php while($row——2 = $result_rank3->fetch_assoc()): ?>
+                <?php $width = $row——2['total_forecast']/$data['total_forecast']*100 ?>
+                <div class="store-rank">
+                    <h2><?= $row——2['region'] ?></h2>
                     <div class="store-rank-container">
                         <div class="store-rank-bar" style="width: <?= $width?>%;">
                             <h2 style="color: white;"><?= number_format($width,2) ?>%</h2>
