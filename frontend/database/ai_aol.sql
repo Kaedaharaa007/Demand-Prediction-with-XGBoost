@@ -43,7 +43,7 @@ CREATE TABLE `orders` (
   `holiday_promotion` tinyint(1) DEFAULT NULL,
   `competitor_pricing` decimal(10,2) DEFAULT NULL,
   `seasonality` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+)
 
 --
 -- Dumping data for table `orders`

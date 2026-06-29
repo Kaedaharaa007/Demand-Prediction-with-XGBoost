@@ -87,6 +87,7 @@ function addPredictionResults(product,store,category,inventory,units_ordered,pri
 
     console.log("Saved to predictions " + record)
 }
+
 window.addEventListener("DOMContentLoaded", updateUI);
 function updateUI(){
     const history = JSON.parse(localStorage.getItem("predictions")) || []

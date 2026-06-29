@@ -3,3 +3,6 @@ pydantic
 uvicorn
 scikit-learn
 xgboost
+sqlalchemy
+psycopg2-binary
+python-dotenv
